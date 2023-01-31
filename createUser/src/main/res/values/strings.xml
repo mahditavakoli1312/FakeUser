@@ -1,0 +1,15 @@
+<resources>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="label_person_image">person image</string>
+    <string name="label_country">country</string>
+    <string name="label_city">city</string>
+    <string name="label_state">state</string>
+    <string name="label_post_code">post Code</string>
+    <string name="label_latitude">latitude</string>
+    <string name="label_longitude">longitude</string>
+    <string name="label_email">email</string>
+    <string name="label_age">age</string>
+    <string name="label_phone">phone</string>
+    <string name="label_refresh">Refresh</string>
+</resources>

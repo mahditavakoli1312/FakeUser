@@ -1,0 +1,381 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.example.createuser.ui.PersonDetailsViewModel" />
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/gray_900_16">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/gray_900_16"
+            android:paddingHorizontal="16dp"
+            tools:context=".ui.PersonDetailsFragment">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cv_username_personDetails"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:layout_marginTop="16dp"
+                android:backgroundTint="@color/gray_900_1"
+                app:cardCornerRadius="20dp"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:id="@+id/iv_personImage_personDetails"
+                        loadImg="@{viewModel.userDetails.picture.large}"
+                        android:layout_width="150dp"
+                        android:layout_height="150dp"
+                        android:layout_marginTop="24dp"
+                        android:contentDescription="@string/label_person_image"
+                        app:layout_constraintDimensionRatio="1:1"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/tv_name_personDetails"
+                        style="@style/fakeUser.TextView.bold.size22"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="16dp"
+                        android:text="@{viewModel.userDetails.name.first+' '+viewModel.userDetails.name.last}"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent" />
+
+                    <TextView
+                        android:id="@+id/tv_gender_personDetails"
+                        style="@style/fakeUser.TextView.bold.size22"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@{viewModel.userDetails.gender}"
+                        app:layout_constraintBottom_toTopOf="@+id/tv_name_personDetails"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!--country-->
+            <TextView
+                android:id="@+id/tv_country_personDetails"
+                style="@style/fakeUser.TextView.bold.size22"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@string/label_country"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/cv_username_personDetails" />
+
+            <TextView
+                android:id="@+id/tv_countryName_personDetails"
+                style="@style/fakeUser.TextView.size18"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:gravity="start"
+                android:text="@{viewModel.userDetails.location.country}"
+                app:layout_constraintBottom_toBottomOf="@id/tv_country_personDetails"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/tv_country_personDetails"
+                app:layout_constraintTop_toTopOf="@id/tv_country_personDetails" />
+
+            <View
+                android:id="@+id/v_v1_personDetails"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginVertical="4dp"
+                android:background="@color/deep_purple_500"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_country_personDetails" />
+
+
+            <!--city-->
+            <TextView
+                android:id="@+id/tv_city_personDetails"
+                style="@style/fakeUser.TextView.bold.size22"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/label_city"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/v_v1_personDetails" />
+
+            <TextView
+                android:id="@+id/tv_cityName_personDetails"
+                style="@style/fakeUser.TextView.size18"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="start"
+                android:text="@{viewModel.userDetails.location.city}"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_city_personDetails"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/tv_city_personDetails"
+                app:layout_constraintTop_toTopOf="@id/tv_city_personDetails" />
+
+            <View
+                android:id="@+id/v_v2_personDetails"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginVertical="4dp"
+                android:background="@color/deep_purple_500"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_city_personDetails" />
+
+            <!--state-->
+            <TextView
+                android:id="@+id/tv_state_personDetails"
+                style="@style/fakeUser.TextView.bold.size22"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/label_state"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/v_v2_personDetails" />
+
+            <TextView
+                android:id="@+id/tv_stateName_personDetails"
+                style="@style/fakeUser.TextView.size18"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="start"
+                android:text="@{viewModel.userDetails.location.state}"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_state_personDetails"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/tv_state_personDetails"
+                app:layout_constraintTop_toTopOf="@id/tv_state_personDetails" />
+
+            <View
+                android:id="@+id/v_v3_personDetails"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginVertical="4dp"
+                android:background="@color/deep_purple_500"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_state_personDetails" />
+
+            <!--postCode-->
+            <TextView
+                android:id="@+id/tv_postCode_personDetails"
+                style="@style/fakeUser.TextView.bold.size22"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/label_post_code"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/v_v3_personDetails" />
+
+            <TextView
+                android:id="@+id/tv_postCodeValue_personDetails"
+                style="@style/fakeUser.TextView.size18"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="start"
+                android:text="@{viewModel.userDetails.location.postcode}"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_postCode_personDetails"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/tv_postCode_personDetails"
+                app:layout_constraintTop_toTopOf="@id/tv_postCode_personDetails" />
+
+            <View
+                android:id="@+id/v_v4_personDetails"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginVertical="4dp"
+                android:background="@color/deep_purple_500"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_postCode_personDetails" />
+
+            <!--latitude-->
+            <TextView
+                android:id="@+id/tv_latitude_personDetails"
+                style="@style/fakeUser.TextView.bold.size22"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/label_latitude"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/v_v4_personDetails" />
+
+            <TextView
+                android:id="@+id/tv_latitudeValue_personDetails"
+                style="@style/fakeUser.TextView.size18"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="start"
+                android:text="@{viewModel.userDetails.location.coordinates.latitude}"
+                app:layout_constraintBottom_toBottomOf="@id/tv_latitude_personDetails"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/tv_latitude_personDetails"
+                app:layout_constraintTop_toTopOf="@id/tv_latitude_personDetails" />
+
+            <View
+                android:id="@+id/v_v5_personDetails"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginVertical="4dp"
+                android:background="@color/deep_purple_500"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_latitude_personDetails" />
+
+
+            <!--longitude-->
+            <TextView
+                android:id="@+id/tv_longitude_personDetails"
+                style="@style/fakeUser.TextView.bold.size22"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/label_longitude"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/v_v5_personDetails" />
+
+            <TextView
+                android:id="@+id/tv_longitudeValue_personDetails"
+                style="@style/fakeUser.TextView.size18"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="start"
+                android:text="@{viewModel.userDetails.location.coordinates.longitude}"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_longitude_personDetails"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/tv_longitude_personDetails"
+                app:layout_constraintTop_toTopOf="@id/tv_longitude_personDetails" />
+
+            <View
+                android:id="@+id/v_v6_personDetails"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginVertical="4dp"
+                android:background="@color/deep_purple_500"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_longitudeValue_personDetails" />
+
+            <!--email-->
+            <TextView
+                android:id="@+id/tv_email_personDetails"
+                style="@style/fakeUser.TextView.bold.size22"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/label_email"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/v_v6_personDetails" />
+
+            <TextView
+                android:id="@+id/tv_emailValue_personDetails"
+                style="@style/fakeUser.TextView.size18"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="start"
+                android:text="@{viewModel.userDetails.email}"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_email_personDetails"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/tv_email_personDetails"
+                app:layout_constraintTop_toTopOf="@id/tv_email_personDetails" />
+
+            <View
+                android:id="@+id/v_v7_personDetails"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginVertical="4dp"
+                android:background="@color/deep_purple_500"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_emailValue_personDetails" />
+
+
+            <!--age-->
+            <TextView
+                android:id="@+id/tv_age_personDetails"
+                style="@style/fakeUser.TextView.bold.size22"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/label_age"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/v_v7_personDetails" />
+
+            <TextView
+                android:id="@+id/tv_ageValue_personDetails"
+                style="@style/fakeUser.TextView.size18"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="start"
+                android:text="@{viewModel.userDetails.dob.age}"
+                app:layout_constraintBottom_toBottomOf="@id/tv_age_personDetails"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/tv_age_personDetails"
+                app:layout_constraintTop_toTopOf="@id/tv_age_personDetails" />
+
+            <View
+                android:id="@+id/v_v8_personDetails"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginVertical="4dp"
+                android:background="@color/deep_purple_500"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_ageValue_personDetails" />
+
+            <!--phone-->
+            <TextView
+                android:id="@+id/tv_phone_personDetails"
+                style="@style/fakeUser.TextView.bold.size22"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/label_phone"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/v_v8_personDetails" />
+
+            <TextView
+                android:id="@+id/tv_phoneValue_personDetails"
+                style="@style/fakeUser.TextView.size18"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="start"
+                android:text="@{viewModel.userDetails.phone}"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_phone_personDetails"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/tv_phone_personDetails"
+                app:layout_constraintTop_toTopOf="@id/tv_phone_personDetails" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_refresh_personDetails"
+                style="@style/fakeUser.Button"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="32dp"
+                android:gravity="center"
+                android:text="@string/label_refresh"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_phone_personDetails" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</layout>

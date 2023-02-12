@@ -19,16 +19,23 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/gray_900_16"
-            android:paddingHorizontal="16dp"
+            android:paddingHorizontal="4dp"
             tools:context=".ui.PersonDetailsFragment">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="16dp"
+                android:background="@drawable/top_bottom_gradient"
+                app:layout_constraintTop_toTopOf="parent"/>
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/cv_username_personDetails"
                 android:layout_width="match_parent"
-                android:layout_height="250dp"
+                android:layout_height="0dp"
                 android:layout_marginTop="16dp"
                 android:backgroundTint="@color/gray_900_1"
                 app:cardCornerRadius="20dp"
+                app:layout_constraintDimensionRatio="3:2"
                 app:layout_constraintTop_toTopOf="parent">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
@@ -56,7 +63,8 @@
                         android:text="@{viewModel.userDetails.name.first+' '+viewModel.userDetails.name.last}"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent" />
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tv_gender_personDetails" />
 
                     <TextView
                         android:id="@+id/tv_gender_personDetails"
@@ -66,7 +74,8 @@
                         android:text="@{viewModel.userDetails.gender}"
                         app:layout_constraintBottom_toTopOf="@+id/tv_name_personDetails"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent" />
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/iv_personImage_personDetails" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.cardview.widget.CardView>
@@ -85,9 +94,9 @@
             <TextView
                 android:id="@+id/tv_countryName_personDetails"
                 style="@style/fakeUser.TextView.size18"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
+                android:layout_marginHorizontal="12dp"
                 android:gravity="start"
                 android:text="@{viewModel.userDetails.location.country}"
                 app:layout_constraintBottom_toBottomOf="@id/tv_country_personDetails"
@@ -120,8 +129,9 @@
             <TextView
                 android:id="@+id/tv_cityName_personDetails"
                 style="@style/fakeUser.TextView.size18"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginHorizontal="12dp"
                 android:gravity="start"
                 android:text="@{viewModel.userDetails.location.city}"
                 app:layout_constraintBottom_toBottomOf="@+id/tv_city_personDetails"
@@ -153,8 +163,9 @@
             <TextView
                 android:id="@+id/tv_stateName_personDetails"
                 style="@style/fakeUser.TextView.size18"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginHorizontal="12dp"
                 android:gravity="start"
                 android:text="@{viewModel.userDetails.location.state}"
                 app:layout_constraintBottom_toBottomOf="@+id/tv_state_personDetails"
@@ -173,6 +184,40 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tv_state_personDetails" />
 
+            <!--street-->
+            <TextView
+                android:id="@+id/tv_street_personDetails"
+                style="@style/fakeUser.TextView.bold.size22"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/label_street"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/v_v3_personDetails" />
+
+            <TextView
+                android:id="@+id/tv_streetName_personDetails"
+                style="@style/fakeUser.TextView.size18"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="12dp"
+                android:gravity="start"
+                android:text="@{viewModel.userDetails.location.street.name+' '+viewModel.userDetails.location.street.number}"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_street_personDetails"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/tv_street_personDetails"
+                app:layout_constraintTop_toTopOf="@id/tv_street_personDetails" />
+
+            <View
+                android:id="@+id/v_v9_personDetails"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginVertical="4dp"
+                android:background="@color/deep_purple_500"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_street_personDetails" />
+
             <!--postCode-->
             <TextView
                 android:id="@+id/tv_postCode_personDetails"
@@ -181,13 +226,14 @@
                 android:layout_height="wrap_content"
                 android:text="@string/label_post_code"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/v_v3_personDetails" />
+                app:layout_constraintTop_toBottomOf="@id/v_v9_personDetails" />
 
             <TextView
                 android:id="@+id/tv_postCodeValue_personDetails"
                 style="@style/fakeUser.TextView.size18"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginHorizontal="12dp"
                 android:gravity="start"
                 android:text="@{viewModel.userDetails.location.postcode}"
                 app:layout_constraintBottom_toBottomOf="@+id/tv_postCode_personDetails"
@@ -219,8 +265,9 @@
             <TextView
                 android:id="@+id/tv_latitudeValue_personDetails"
                 style="@style/fakeUser.TextView.size18"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginHorizontal="12dp"
                 android:gravity="start"
                 android:text="@{viewModel.userDetails.location.coordinates.latitude}"
                 app:layout_constraintBottom_toBottomOf="@id/tv_latitude_personDetails"
@@ -253,8 +300,9 @@
             <TextView
                 android:id="@+id/tv_longitudeValue_personDetails"
                 style="@style/fakeUser.TextView.size18"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginHorizontal="12dp"
                 android:gravity="start"
                 android:text="@{viewModel.userDetails.location.coordinates.longitude}"
                 app:layout_constraintBottom_toBottomOf="@+id/tv_longitude_personDetails"
@@ -286,8 +334,9 @@
             <TextView
                 android:id="@+id/tv_emailValue_personDetails"
                 style="@style/fakeUser.TextView.size18"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginHorizontal="12dp"
                 android:gravity="start"
                 android:text="@{viewModel.userDetails.email}"
                 app:layout_constraintBottom_toBottomOf="@+id/tv_email_personDetails"
@@ -320,8 +369,9 @@
             <TextView
                 android:id="@+id/tv_ageValue_personDetails"
                 style="@style/fakeUser.TextView.size18"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginHorizontal="12dp"
                 android:gravity="start"
                 android:text="@{viewModel.userDetails.dob.age}"
                 app:layout_constraintBottom_toBottomOf="@id/tv_age_personDetails"
@@ -353,8 +403,9 @@
             <TextView
                 android:id="@+id/tv_phoneValue_personDetails"
                 style="@style/fakeUser.TextView.size18"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginHorizontal="12dp"
                 android:gravity="start"
                 android:text="@{viewModel.userDetails.phone}"
                 app:layout_constraintBottom_toBottomOf="@+id/tv_phone_personDetails"
@@ -367,6 +418,7 @@
                 style="@style/fakeUser.Button"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginHorizontal="12dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginBottom="32dp"
                 android:gravity="center"
@@ -375,6 +427,22 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tv_phone_personDetails" />
+
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_copyGeneratedAddress_personDetails"
+                style="@style/fakeUser.Button"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="12dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="32dp"
+                android:gravity="center"
+                android:text="@string/label_copy_generated_address"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/btn_refresh_personDetails" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>

@@ -16,6 +16,7 @@
         android:background="@color/gray_900_16">
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_personDetails_personDetails"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/gray_900_16"
@@ -419,11 +420,10 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="12dp"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="8dp"
                 android:layout_marginBottom="32dp"
                 android:gravity="center"
                 android:text="@string/label_refresh"
-                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tv_phone_personDetails" />

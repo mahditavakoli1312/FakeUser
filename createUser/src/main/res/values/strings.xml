@@ -12,11 +12,13 @@
     <string name="label_age">age</string>
     <string name="label_phone">phone</string>
     <string name="label_refresh">Refresh</string>
-    <string name="label_copied">متن انتخاب شده کپی شد.</string>
-    <string name="label_generated_address_copied">آدرس تولید شده کپی شد.</string>
-    <string name="label_image_copied">آدرس تصویر انتخاب شده کپی شد.</string>
-    <string name="label_server_error">خطا در ارتباط با سرور</string>
-    <string name="label_network_error">خطا در اتصال به شبکه</string>
+    <string name="label_copied">The selected text is copied.</string>
+    <string name="label_generated_address_copied">The generated address was copied.</string>
+    <string name="label_image_copied">The address of the selected image was copied.</string>
+    <string name="label_server_error">Error connecting to the server</string>
+    <string name="label_network_error">Error connecting to the <network></network></string>
     <string name="label_copy_generated_address">copy generated address</string>
     <string name="label_street">street</string>
+    <string name="label_loading">Loading</string>
+    <string name="label_wait_to_load">Wait while loading…</string>
 </resources>

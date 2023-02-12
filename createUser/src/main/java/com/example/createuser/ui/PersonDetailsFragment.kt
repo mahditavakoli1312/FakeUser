@@ -1,5 +1,6 @@
 package com.example.createuser.ui
 
+import android.app.ProgressDialog
 import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -46,6 +47,21 @@ class PersonDetailsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.viewModel = personDetailsViewModel
+
+        val progress = ProgressDialog(requireContext())
+        personDetailsViewModel.stateLoadState.collectOnFragment(this) {
+            if (it == NetworkState.LOADING) {
+                binding.clPersonDetailsPersonDetails.visibility = View.INVISIBLE
+                progress.setTitle("Loading")
+                progress.setMessage("Wait while loading...")
+                progress.setCancelable(false)
+                progress.show()
+            } else{
+                binding.clPersonDetailsPersonDetails.visibility = View.VISIBLE
+                progress.dismiss()
+            }
+        }
+
         setBindings()
         setCopyReaction()
         setupCollection()
@@ -86,6 +102,7 @@ class PersonDetailsFragment : Fragment() {
                     requireContext().resources.getText(R.string.label_network_error),
                     Toast.LENGTH_SHORT
                 ).show()
+                NetworkState.LOADING -> {}
             }
         }
 

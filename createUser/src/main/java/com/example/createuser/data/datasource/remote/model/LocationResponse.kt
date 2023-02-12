@@ -6,6 +6,6 @@ data class LocationResponse(
     val country: String,
     val postcode: String,
     val state: String,
-    val streetResponse: StreetResponse,
+    val street: Street,
     val timezone: TimezoneResponse
 )

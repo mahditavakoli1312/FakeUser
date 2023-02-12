@@ -1,7 +1,7 @@
 package com.example.core.networkUtils
 
 
-suspend fun <T> safeApiCall(api: suspend () -> T, localData: T): ResultWrapper<T> {
+suspend fun <T> safeApiCall(api: suspend () -> T): ResultWrapper<T> {
     return try {
         ResultWrapper.Success(data = api.invoke())
     } catch (exception: Exception) {
@@ -10,13 +10,11 @@ suspend fun <T> safeApiCall(api: suspend () -> T, localData: T): ResultWrapper<T
                 ResultWrapper.Failure(
                     message = exception.serverMessage,
                     code = exception.code,
-                    localData = localData
                 )
             }
             else -> {
                 ResultWrapper.ApplicationError(
-                    message = exception.localizedMessage,
-                    localData = localData
+                    message = exception.localizedMessage ,
                 )
             }
         }

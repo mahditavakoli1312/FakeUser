@@ -1,6 +1,5 @@
 package com.example.createuser.data.datasource.remote.impl
 
-import android.util.Log
 import com.example.core.networkUtils.bodyOrThrow
 import com.example.createuser.data.datasource.remote.FakeUserRemoteDataSource
 import com.example.createuser.data.datasource.remote.api.FakeUserApi
@@ -9,12 +8,9 @@ import javax.inject.Inject
 
 class FakeUserRemoteDataSourceImpl @Inject constructor(
     private val fakeUserApi: FakeUserApi
-): FakeUserRemoteDataSource{
-    override suspend fun getFakeUser(): FakeUserResponse
-    {
-        val res =  fakeUserApi.createFakeUser().bodyOrThrow()
-        Log.d("mahdi", "getFakeUser: $res")
-        return res
-    }
+) : FakeUserRemoteDataSource {
+    override suspend fun getFakeUser(): FakeUserResponse =
+        fakeUserApi.createFakeUser().bodyOrThrow()
+
 
 }

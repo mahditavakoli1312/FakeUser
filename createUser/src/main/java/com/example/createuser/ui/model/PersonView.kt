@@ -26,7 +26,7 @@ fun PersonEntity.toPersonView() =
     PersonView(
         idValue = idValue,
         email = email,
-        gender = gender,
+        gender = this.getGender(),
         city = city,
         country = country,
         postcode = postcode,
@@ -42,3 +42,9 @@ fun PersonEntity.toPersonView() =
         longLocation = longitude,
         dobAge = dobAge
     )
+
+fun PersonEntity.getGender(): String =
+    if (gender == "male")
+        "مرد"
+    else
+        "زن"

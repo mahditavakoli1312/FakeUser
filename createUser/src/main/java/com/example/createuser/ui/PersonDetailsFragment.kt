@@ -199,13 +199,6 @@ class PersonDetailsFragment : Fragment() {
                 }
             }
 
-            tvStreetPersonDetails.setOnClickListener {
-                copyTextToClipboard(
-                    tvStreetNamePersonDetails.text.toString(),
-                    context = requireContext()
-                )
-            }
-
             tvStreetNamePersonDetails.setOnClickListener {
                 copyTextToClipboard(
                     tvStreetNamePersonDetails.text.toString(),

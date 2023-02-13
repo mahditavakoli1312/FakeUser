@@ -20,3 +20,7 @@ annotation class AppScope
 @Scope
 @Retention(AnnotationRetention.RUNTIME)
 annotation class ContextScope
+
+@Scope
+@Retention(AnnotationRetention.RUNTIME)
+annotation class AppDataBaseScope

@@ -18,5 +18,5 @@ abstract class CreateUserViewModelModule {
     @Binds
     @IntoMap
     @ViewModelKey(PersonDetailsViewModel::class)
-    abstract fun bindSplashViewModel(viewModel: PersonDetailsViewModel): ViewModel
+    abstract fun bindPersonDetailsViewModel(viewModel: PersonDetailsViewModel): ViewModel
 }

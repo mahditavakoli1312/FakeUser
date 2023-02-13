@@ -1,9 +1,9 @@
 package com.example.modularzation.di.component
 
-import com.google.gson.Gson
-import dagger.Component
 import com.example.modularzation.di.module.NetworkModule
 import com.example.modularzation.di.scope.NetworkScope
+import com.google.gson.Gson
+import dagger.Component
 import retrofit2.Retrofit
 
 @NetworkScope

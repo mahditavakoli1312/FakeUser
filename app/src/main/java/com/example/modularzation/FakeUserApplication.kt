@@ -12,9 +12,15 @@ class FakeUserApplication : Application(), PersonDetailsInjector {
     private val networkComponent: NetworkComponent by lazy {
         DaggerNetworkComponent.factory().create(contextComponent = contextComponent)
     }
-     val createUserComponent: CreateUserComponent by lazy {
+    private val dataBaseComponent: AppDataBaseComponent by lazy {
+        DaggerAppDataBaseComponent.factory().create(
+            contextComponent
+        )
+    }
+    private val createUserComponent: CreateUserComponent by lazy {
         DaggerCreateUserComponent.factory().create(
-            networkComponent = networkComponent
+            networkComponent = networkComponent,
+            appDataBaseComponent = dataBaseComponent
         )
     }
 

@@ -2,10 +2,10 @@ package com.example.modularzation.di.component
 
 import android.app.Application
 import android.content.Context
-import dagger.BindsInstance
-import dagger.Component
 import com.example.modularzation.di.module.ContextModule
 import com.example.modularzation.di.scope.ContextScope
+import dagger.BindsInstance
+import dagger.Component
 
 @ContextScope
 @Component(

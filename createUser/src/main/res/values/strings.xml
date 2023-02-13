@@ -1,24 +1,22 @@
 <resources>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="label_person_image">person image</string>
-    <string name="label_country">country</string>
-    <string name="label_city">city</string>
-    <string name="label_state">state</string>
-    <string name="label_post_code">post Code</string>
-    <string name="label_latitude">latitude</string>
-    <string name="label_longitude">longitude</string>
-    <string name="label_email">email</string>
-    <string name="label_age">age</string>
-    <string name="label_phone">phone</string>
-    <string name="label_refresh">Refresh</string>
-    <string name="label_copied">The selected text is copied.</string>
-    <string name="label_generated_address_copied">The generated address was copied.</string>
-    <string name="label_image_copied">The address of the selected image was copied.</string>
-    <string name="label_server_error">Error connecting to the server</string>
-    <string name="label_network_error">Error connecting to the <network></network></string>
-    <string name="label_copy_generated_address">copy generated address</string>
-    <string name="label_street">street</string>
-    <string name="label_loading">Loading</string>
-    <string name="label_wait_to_load">Wait while loading…</string>
+    <string name="label_country">کشور</string>
+    <string name="label_city">شهر</string>
+    <string name="label_state">منطقه</string>
+    <string name="label_post_code">کد پستی</string>
+    <string name="label_latitude">عرض جغرافیایی</string>
+    <string name="label_longitude">طول جغرافیایی</string>
+    <string name="label_email">ایمیل</string>
+    <string name="label_age">سن</string>
+    <string name="label_phone">شماره تماس</string>
+    <string name="label_refresh">تازه سازی</string>
+    <string name="label_copied">متن انتخاب شده کپی شد.</string>
+    <string name="label_generated_address_copied">آدرس انتخاب شده کپی شد.</string>
+    <string name="label_image_copied">لینک تصویر انتخاب شده کپی شد.</string>
+    <string name="label_server_error">خطا در ارتباط با سرور</string>
+    <string name="label_network_error">خطا در ارتباط با شبکه</string>
+    <string name="label_copy_generated_address">کپی کردن آدرس تولید شده</string>
+    <string name="label_street">خیابان</string>
+    <string name="label_loading">تازه سازی</string>
+    <string name="label_wait_to_load">صبر کنید…</string>
 </resources>

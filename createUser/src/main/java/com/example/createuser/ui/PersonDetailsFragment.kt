@@ -53,8 +53,8 @@ class PersonDetailsFragment : Fragment() {
         personDetailsViewModel.stateLoadState.collectOnFragment(this) {
             if (it == NetworkState.LOADING) {
                 binding.clPersonDetailsPersonDetails.visibility = View.INVISIBLE
-                progress.setTitle("Loading")
-                progress.setMessage("Wait while loading...")
+                progress.setTitle(requireContext().resources.getText(R.string.label_loading))
+                progress.setMessage(requireContext().resources.getText(R.string.label_loading))
                 progress.setCancelable(false)
                 progress.show()
             } else {

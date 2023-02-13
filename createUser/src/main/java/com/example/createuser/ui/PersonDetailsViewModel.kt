@@ -4,8 +4,9 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.core.networkUtils.ResultWrapper
 import com.example.core.ui.NetworkState
-import com.example.createuser.data.datasource.remote.model.ResultResponse
 import com.example.createuser.data.repository.FakeUserRepository
+import com.example.createuser.ui.model.PersonView
+import com.example.createuser.ui.model.toPersonView
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -15,7 +16,7 @@ class PersonDetailsViewModel @Inject constructor(
 ) : ViewModel() {
 
     private val _userDetails =
-        MutableStateFlow<ResultResponse>(ResultResponse())
+        MutableStateFlow<PersonView>(PersonView())
     val userDetails = _userDetails.asStateFlow()
 
     private val _loadState = MutableSharedFlow<NetworkState>()
@@ -58,7 +59,7 @@ class PersonDetailsViewModel @Inject constructor(
                 }
                 is ResultWrapper.Success -> {
                     _stateLoadState.value = NetworkState.SUCCESS
-                    _userDetails.emit(response.data.results.first())
+                    _userDetails.emit(response.data.toPersonView())
                 }
             }
         }
@@ -67,11 +68,11 @@ class PersonDetailsViewModel @Inject constructor(
     fun generateAddress(): String {
         var address: String = ""
         _userDetails.value.apply {
-            address += location?.country + ", "
-            address += "city : " + location?.city + ", "
-            address += "state : " + location?.state + ", "
-            address += "street : " + location?.street?.name + " " + location?.street?.number + ", "
-            address += "postcode : " + location?.postcode + ", "
+            address += "$country, "
+            address += "city : $city, "
+            address += "state : $state, "
+            address += "street : $streetName $streetNumber, "
+            address += "postcode : $postcode, "
             address += "phone : $phone"
         }
         return address

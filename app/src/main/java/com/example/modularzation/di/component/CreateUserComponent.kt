@@ -10,17 +10,19 @@ import dagger.Component
 @Component(
     modules = [
         CreateUserModule::class,
-        CreateUserViewModelModule::class
+        CreateUserViewModelModule::class,
     ],
     dependencies = [
-        NetworkComponent::class
+        NetworkComponent::class,
+        AppDataBaseComponent::class
     ]
 )
 interface CreateUserComponent : PersonDetailsInjector {
     @Component.Factory
     interface Factory {
         fun create(
-            networkComponent: NetworkComponent
+            networkComponent: NetworkComponent,
+            appDataBaseComponent: AppDataBaseComponent
         ): CreateUserComponent
     }
 }

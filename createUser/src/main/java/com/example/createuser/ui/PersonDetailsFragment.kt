@@ -191,7 +191,7 @@ class PersonDetailsFragment : Fragment() {
             }
 
             ivPersonImagePersonDetails.setOnClickListener {
-                personDetailsViewModel.userDetails.value.picture?.large?.let { imageUrl ->
+                personDetailsViewModel.userDetails.value.largePicture?.let { imageUrl ->
                     copyImageToClipboard(
                         imageUrl,
                         context = requireContext()

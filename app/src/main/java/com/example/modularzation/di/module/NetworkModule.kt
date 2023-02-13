@@ -1,8 +1,8 @@
 package com.example.modularzation.di.module
 
 import com.example.core.data.URLs
-import com.example.modularzation.di.scope.NetworkScope
 import com.example.core.networkUtils.HeaderInterceptor
+import com.example.modularzation.di.scope.NetworkScope
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import dagger.Module

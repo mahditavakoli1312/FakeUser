@@ -14,7 +14,7 @@ suspend fun <T> safeApiCall(api: suspend () -> T): ResultWrapper<T> {
             }
             else -> {
                 ResultWrapper.ApplicationError(
-                    message = exception.localizedMessage ,
+                    message = exception.localizedMessage,
                 )
             }
         }

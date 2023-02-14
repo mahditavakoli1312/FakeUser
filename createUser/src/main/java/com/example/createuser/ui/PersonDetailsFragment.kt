@@ -54,7 +54,7 @@ class PersonDetailsFragment : Fragment() {
             if (it == NetworkState.LOADING) {
                 binding.clPersonDetailsPersonDetails.visibility = View.INVISIBLE
                 progress.setTitle(requireContext().resources.getText(R.string.label_loading))
-                progress.setMessage(requireContext().resources.getText(R.string.label_loading))
+                progress.setMessage(requireContext().resources.getText(R.string.label_wait_to_load))
                 progress.setCancelable(false)
                 progress.show()
             } else {
@@ -249,7 +249,7 @@ class PersonDetailsFragment : Fragment() {
 
     private fun vibrateAndDo(function: () -> Unit) {
         VibrationUtils.vibrate(
-            vibrationTime = VIBRATION_TIME,
+            vibrationTime = 5L,
             context = requireContext()
         )
         function.invoke()

@@ -9,6 +9,7 @@
     <string name="label_email">ایمیل</string>
     <string name="label_age">سن</string>
     <string name="label_phone">شماره تماس</string>
+    <string name="label_for_copy_select_item">برای کپی کردن یک فیلد خاص ، روی آن کلیک کنید.</string>
     <string name="label_refresh">تازه سازی</string>
     <string name="label_copied">متن انتخاب شده کپی شد.</string>
     <string name="label_generated_address_copied">آدرس انتخاب شده کپی شد.</string>

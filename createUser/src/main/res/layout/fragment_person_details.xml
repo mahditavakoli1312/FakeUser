@@ -24,31 +24,40 @@
             tools:context=".ui.PersonDetailsFragment">
 
             <View
+                android:id="@+id/v_gradient_personDetails"
                 android:layout_width="match_parent"
-                android:layout_height="16dp"
+                android:layout_height="8dp"
                 android:background="@drawable/top_bottom_gradient"
                 app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_forCopySelect_personDetails"
+                style="@style/fakeUser.TextView.caption.grey"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/label_for_copy_select_item"
+                app:layout_constraintTop_toBottomOf="@id/v_gradient_personDetails" />
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/cv_username_personDetails"
                 android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:layout_marginTop="16dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
                 android:backgroundTint="@color/gray_900_1"
                 app:cardCornerRadius="15dp"
-                app:layout_constraintTop_toTopOf="parent">
+                app:layout_constraintTop_toBottomOf="@id/tv_forCopySelect_personDetails">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="wrap_content">
 
                     <ImageView
                         android:id="@+id/iv_personImage_personDetails"
                         loadImg="@{viewModel.userDetails.largePicture}"
                         android:layout_width="150dp"
                         android:layout_height="150dp"
-                        android:layout_marginTop="24dp"
-                        android:layout_marginEnd="24dp"
+                        android:layout_marginBottom="6dp"
                         android:contentDescription="@string/label_person_image"
                         app:layout_constraintDimensionRatio="1:1"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -60,12 +69,12 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="24dp"
-                        android:layout_marginBottom="16dp"
                         android:text="@{viewModel.userDetails.firstName+' '+viewModel.userDetails.lastName}"
                         app:layout_constraintBottom_toTopOf="@+id/tv_gender_personDetails"
                         app:layout_constraintEnd_toStartOf="@+id/iv_personImage_personDetails"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="@+id/iv_personImage_personDetails" />
+                        app:layout_constraintTop_toTopOf="@+id/iv_personImage_personDetails"
+                        app:layout_constraintVertical_chainStyle="packed" />
 
                     <TextView
                         android:id="@+id/tv_gender_personDetails"
@@ -74,6 +83,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
                         android:text="@{viewModel.userDetails.gender}"
+                        app:layout_constraintBottom_toBottomOf="@+id/iv_personImage_personDetails"
                         app:layout_constraintEnd_toEndOf="@+id/tv_name_personDetails"
                         app:layout_constraintStart_toStartOf="@+id/tv_name_personDetails"
                         app:layout_constraintTop_toBottomOf="@+id/tv_name_personDetails" />
@@ -116,7 +126,6 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tv_country_personDetails" />
-
 
             <!--city-->
             <TextView
@@ -426,7 +435,7 @@
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btn_refresh_personDetails"
-                style="@style/fakeUser.Button"
+                style="@style/buttonRounded"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:layout_marginTop="6dp"
@@ -441,7 +450,7 @@
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btn_copyGeneratedAddress_personDetails"
-                style="@style/fakeUser.Button"
+                style="@style/buttonRounded"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:layout_marginTop="6dp"

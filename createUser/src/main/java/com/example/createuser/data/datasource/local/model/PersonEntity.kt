@@ -5,6 +5,7 @@ import androidx.room.PrimaryKey
 import com.example.createuser.data.datasource.remote.model.ResultResponse
 
 @Entity(tableName = "person")
+
 data class PersonEntity(
     @PrimaryKey(autoGenerate = true)
     val id: Int? = null,

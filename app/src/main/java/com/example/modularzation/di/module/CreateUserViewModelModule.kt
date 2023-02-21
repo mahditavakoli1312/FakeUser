@@ -2,7 +2,7 @@ package com.example.modularzation.di.module
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.example.core.common.MahdiViewModelFactory
+import com.example.core.common.ApplicationViewModelFactory
 import com.example.createuser.ui.PersonDetailsViewModel
 import com.example.modularzation.di.scope.ViewModelKey
 import dagger.Binds
@@ -13,7 +13,7 @@ import dagger.multibindings.IntoMap
 abstract class CreateUserViewModelModule {
 
     @Binds
-    abstract fun bindViewModelFactory(factory: MahdiViewModelFactory): ViewModelProvider.Factory
+    abstract fun bindViewModelFactory(factory: ApplicationViewModelFactory): ViewModelProvider.Factory
 
     @Binds
     @IntoMap

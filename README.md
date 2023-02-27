@@ -26,7 +26,7 @@ https://github.com/mahditavakoli1312/FakeUser.git
 
 2. سپس component آن فیچر که در ماژول app  ایجاد شده است باید PersonDetailsInjector  را implement کند.
 
-```interface CreateUserComponent : PersonDetailsInjector {
+`interface CreateUserComponent : PersonDetailsInjector {
     @Component.Factory
     interface Factory {
         fun create(
@@ -34,7 +34,7 @@ https://github.com/mahditavakoli1312/FakeUser.git
             appDataBaseComponent: AppDataBaseComponent
         ): CreateUserComponent
     }
-}```
+}`
 
 
 3. سپس Application برنامه در اینجا (FakeUserApplication) باید PersonDetailsInjector  را implement کند.
